@@ -5,7 +5,7 @@ fake = Factory.create()
 
 db.drop_all()
 db.create_all()
-for num in range(5):
+for num in range(15):
     fullname = fake.name().split()
     name = fullname[0]
     lastName = ' '.join(fullname[1:])
