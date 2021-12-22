@@ -1,0 +1,11 @@
+{% macro generate_fields(form) -%} {% for field in form %} {% if field.type !=
+'CSRFTokenField' %}
+<div class="form-group{%if field.errors %} has-error{% endif %}">
+  {% if field.type in ('StringField', 'PasswordField') %} {{ field.label }}
+  {{field(class='form-control') }} {% elif field.type in ('SubmitField') %}
+  {{field(class='btn btn-success') }} {%else %} {{ field.label }} {{ field() }}
+  {% endif %} {% for error in field.errors %}
+  <span class="help-block">{{ error }}</span>
+  {% endfor %}
+</div>
+{% else %} {{ field() }} {% endif %} {% endfor %} {%- endmacro %}

@@ -1,0 +1,8 @@
+{% extends 'layouts/master.html' %} {% block title %}New client{% endblock %} {%
+block body %}
+<h1>New client</h1>
+<form action="{{ url_for('new_client') }}" method="post">
+  {{ generate_fields(form) }}
+</form>
+{% endblock %}
+<script></script>
